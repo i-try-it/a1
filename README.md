@@ -1,2 +1,3 @@
 # a1
-a1
+
+npm i -g @angular/cli
