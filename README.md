@@ -1,4 +1,8 @@
-# a1
+```
+ng new a1
+```
+
+# A1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
@@ -25,35 +29,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-
-## install the angular CLI
-```
-sudo npm i -g @angular/cli
-```
-## generate new app using CLI
-```
-ng new new_app_name
-```
-## compile and serve application
-```
-g serve - will compile
-```
-## open application
-```
-navigate localhost:4200
-```
-## stop server
-```
-ctrl + z
-```
-##
-```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
-```
-
-##
-```
-sudo npm install typescript -g
-```
