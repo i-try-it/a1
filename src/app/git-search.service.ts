@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angulr/common/http';
-import 'rxjs/add/operator/toPromise';
+import { HttpClient } from '@angular/common/http';
+// import 'rxjs/add/operator/toPromise';
 
 import { GitSearch } from './git-search';
 
-
 @Injectable({
-  // providedIn: 'root'
+  providedIn: 'root'
 })
 export class GitSearchService {
-  cashedValues: Array<{
+  private cashedValues: {
     [query: string]: GitSearch
-  }> = [];
+  } = {};
 
   private http: HttpClient;
   private gitSearchUrl = 'https://api.github.com/search/repositories?q=';
@@ -43,20 +42,19 @@ export class GitSearchService {
       console.log(err);
     });
   }
-  gitSearch = (query: string): Promise<GitSearch> => {
-    const promise = new Promise((resolve, reject) => {
-      if (this.cashedValues[query]) {
+  gitSearch = (query: string): Promise<any> => {
+    return new Promise((resolve, reject) => {
+      if (this.cashedValues[query] !== undefined) {
         resolve(this.cashedValues[query]);
       } else {
         this.http.get(`${this.gitSearchUrl}${query}`)
           .toPromise()
-          .then((response) => {
+          .then((response: GitSearch) => {
             resolve(response);
-          }, (error) => {
+          }, (error: any) => {
             reject(error);
           });
       }
     });
-    return promise;
   }
 }

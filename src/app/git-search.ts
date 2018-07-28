@@ -1,7 +1,7 @@
 export interface GitSearch {
   total_count: number;
   incomplete_results: boolean;
-  items: Array<
+  items?: Array<
     {
       id: number;
       name: string;
