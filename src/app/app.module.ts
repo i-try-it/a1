@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/commom/http';
 
 import { AppComponent } from './app.component';
+import { GitSearchService } from './git-search.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AppComponent } from './app.component';
      * if another developer imports your module, they may not be able to see the
      * modules you have imported
      */
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   exports: [
     /**
@@ -34,6 +37,7 @@ import { AppComponent } from './app.component';
      * used to list providers for configuring the injector, when this module is
      * imported by other modules
      */
+     GitSearchService
   ],
   /**
    * entryComponents - constitutes a list of components about which
