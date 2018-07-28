@@ -43,14 +43,20 @@ export class GitSearchService {
       console.log(err);
     });
   }
-  gitSearch = (query: string) => {
-    let promise = new Promise((resolve, reject) => {
+  gitSearch = (query: string): Promise<GitSearch> => {
+    const promise = new Promise((resolve, reject) => {
       if (this.cashedValues[query]) {
         resolve(this.cashedValues[query]);
       } else {
-        resolve('Plaseholder');
+        this.http.get(`${this.gitSearchUrl}${query}`)
+          .toPromise()
+          .then((response) => {
+            resolve(response);
+          }, (error) => {
+            reject(error);
+          });
       }
-    })
+    });
     return promise;
   }
 }
