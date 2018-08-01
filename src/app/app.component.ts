@@ -10,22 +10,9 @@ import { GitSearch } from './git-search';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  private gitSearchService: GitSearchService;
+  // private gitSearchService: GitSearchService;
   constructor(private gitSearchService: GitSearchService) {
-    this.gitSearchService = gitSearchService;
+    // this.gitSearchService = gitSearchService;
   }
-  ngOnInit() {
-    this.gitSearchService.gitSearch('angular')
-      .then((result: GitSearch) => {
-        alert(`Total Libraries Found: ${result.total_count}`);
-      }, (err: Error) => {
-        alert(`Error: ${err.message}`);
-      });
-      this.gitSearchService.searchUser('tom')
-        .then((result: GitSearch) => {
-          alert(`Total Users Found: ${result.total_count}`);
-        }, (err: Error) => {
-          alert(`Error: ${err.message}`);
-        });
-  }
+  ngOnInit() {}
 }
