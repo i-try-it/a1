@@ -21,5 +21,11 @@ export class AppComponent implements OnInit {
       }, (err: Error) => {
         alert(`Error: ${err.message}`);
       });
+      this.gitSearchService.searchUser('tom')
+        .then((result: GitSearch) => {
+          alert(`Total Users Found: ${result.total_count}`);
+        }, (err: Error) => {
+          alert(`Error: ${err.message}`);
+        });
   }
 }

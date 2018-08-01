@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { GitSearchService } from './git-search.service';
+import { GitSearchComponent } from './git-search/git-search.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { GitSearchService } from './git-search.service';
      * Everything in a declaration is visible to application using this module,
      * without requiring any explicit exports
      */
-    AppComponent
+    AppComponent,
+    GitSearchComponent
   ],
   imports: [
     /**
