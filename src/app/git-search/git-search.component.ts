@@ -12,6 +12,8 @@ export class GitSearchComponent implements OnInit {
 
   searchResults: GitSearch;
 
+  searchQuery: string;
+
   constructor(private gitSearchService: GitSearchService) { }
 
   ngOnInit() {
@@ -23,8 +25,8 @@ export class GitSearchComponent implements OnInit {
       });
   }
 
-  gitSearch = (query: string) => {
-    this.gitSearchService.gitSearch(query)
+  gitSearch = () => {
+    this.gitSearchService.gitSearch(this.searchQuery)
       .then((result: GitSearch) => {
         this.searchResults = result;
       }, (err: Error) => {

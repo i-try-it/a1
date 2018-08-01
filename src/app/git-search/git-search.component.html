@@ -2,6 +2,8 @@
   Not all of the bindings are using the interpolation syntax {{}}
   - we don't use interpolation when we are binding in a directive.
 -->
+<input name="query" placeholder="Enter Search Here" [(ngModel)]="searhQuery" />
+<button (click)="gitSearch()">Submit</button>
 <div *ngIf="searchResults; else elseBlock">
     <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
     <ul class="list">
