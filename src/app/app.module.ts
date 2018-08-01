@@ -13,6 +13,10 @@ import { GitSearchComponent } from './git-search/git-search.component';
      * module
      * Everything in a declaration is visible to application using this module,
      * without requiring any explicit exports
+     * 
+     * Every component must be imported into one (and only one) @NgModule and
+     * the declarations array contains the list of all components available within
+     * that module.
      */
     AppComponent,
     GitSearchComponent

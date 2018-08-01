@@ -10,10 +10,10 @@ import { GitUsers } from './git-users';
 })
 export class GitSearchService {
   private cashedValues: {
-    [query: string]?: GitSearch;
+    [query: string]: GitSearch;
   } = {};
   private cashedUsers: {
-    [query: string]?: GitUsers;
+    [query: string]: GitUsers;
   } = {};
 
   private http: HttpClient;
