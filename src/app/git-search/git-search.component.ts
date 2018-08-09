@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { GitSearchService } from '../git-search.service';
 import { GitSearch } from '../git-search';
@@ -14,7 +15,9 @@ export class GitSearchComponent implements OnInit {
 
   searchQuery: string;
 
-  constructor(private gitSearchService: GitSearchService) { }
+  title: string;
+
+  constructor(private gitSearchService: GitSearchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.gitSearchService.gitSearch('angular')
@@ -23,6 +26,9 @@ export class GitSearchComponent implements OnInit {
       }, (err: Error) => {
         alert(`Error: ${err.message}`);
       });
+    this.route.data.subscribe((result) => {
+      this.title = result.title;
+    });
   }
 
   gitSearch = () => {
